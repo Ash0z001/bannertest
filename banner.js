@@ -1,6 +1,7 @@
 function initHandler() { //Subsequent loading...
 
     var _width = 300;   //collapsed banner width
+    // var _height = 600;  //collapsed banner height
     var _height = 250;  //collapsed banner height
     var isiY = 398;     //change to isiX for horizontal banners
 
@@ -29,7 +30,7 @@ function initHandler() { //Subsequent loading...
         attr: { id:"txt12"} });
 
     m.create("img", {
-        css: { x:0, y:0, autoAlpha:0, transformOrigin:'0 0'},
+        css: { x:0, y:0, scale: 0.5, autoAlpha:0, transformOrigin:'0 0'},
         attr: { id:"txt1", src:"txt-1.png"} },
         "#txt12");
 
@@ -43,7 +44,7 @@ function initHandler() { //Subsequent loading...
         attr: { id:"txt3", src:"txt-3.png"} });
     
     m.create("img", {
-        css: { x:0, y:0, autoAlpha:0},
+        css: { x:70, y:-100, scale: 0.5, autoAlpha:0},
         attr: { id:"requestARep", src:"request-a-rep.png"} });
 
     m.create("div", {
