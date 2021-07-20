@@ -3,7 +3,7 @@ function initHandler() { //Subsequent loading...
     var _width = 300;   //collapsed banner width
     // var _height = 600;  //collapsed banner height
     var _height = 250;  //collapsed banner height
-    var isiY = 398;     //change to isiX for horizontal banners
+    var isiY = 252;     //change to isiX for horizontal banners
 
     var slideIn = .8;
     var fadeIn = .5;
@@ -18,7 +18,7 @@ function initHandler() { //Subsequent loading...
     m.create("img", {attr:{src:'bg-0.png'}});
 
     m.create("img", {
-        css: { x:-180, y:-140, scale:1, transformOrigin:'0 0'},
+        css: { x:0, y:-140, scale:0.6, width:500, transformOrigin:'0 0'},
         attr: { id:"bg", src:"bg.jpg"} });
 
     m.create("img", {
@@ -48,7 +48,7 @@ function initHandler() { //Subsequent loading...
         attr: { id:"requestARep", src:"request-a-rep.png"} });
 
     m.create("div", {
-        css: { x:0, y:_height, width:299, height:50, autoAlpha:0},
+        css: { x:0, y:-10, width:299, height:350, autoAlpha:0 },
         attr: { id:"isi-col", class:"isi-content"},
         text: mkr.query("#isi-content").innerHTML });
 
