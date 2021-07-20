@@ -48,7 +48,7 @@ function initHandler() { //Subsequent loading...
         attr: { id:"requestARep", src:"request-a-rep.png"} });
 
     m.create("div", {
-        css: { x:0, y:_height, width:299, height:201, autoAlpha:0},
+        css: { x:0, y:_height, width:299, height:50, autoAlpha:0},
         attr: { id:"isi-col", class:"isi-content"},
         text: mkr.query("#isi-content").innerHTML });
 
