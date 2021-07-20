@@ -1,7 +1,7 @@
 function initHandler() { //Subsequent loading...
 
     var _width = 300;   //collapsed banner width
-    var _height = 600;  //collapsed banner height
+    var _height = 250;  //collapsed banner height
     var isiY = 398;     //change to isiX for horizontal banners
 
     var slideIn = .8;
@@ -21,7 +21,7 @@ function initHandler() { //Subsequent loading...
         attr: { id:"bg", src:"bg.jpg"} });
 
     m.create("img", {
-        css: { x:0, y:0},
+        css: { x:-43, y:-90, scale: 0.7 },
         attr: { id:"logo", src:"logo.png"} });
 
     m.create("div", {
@@ -39,7 +39,7 @@ function initHandler() { //Subsequent loading...
         "#txt12");
     
     m.create("img", {
-        css: { x:0, y:0, autoAlpha:0},
+        css: { x:0, y:0, autoAlpha:0, width: 150},
         attr: { id:"txt3", src:"txt-3.png"} });
     
     m.create("img", {
