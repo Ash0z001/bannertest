@@ -1,28 +1,29 @@
 function initHandler() { //Subsequent loading...
 
     var _width = 300;   //collapsed banner width
-    // var _height = 600;  //collapsed banner height
     var _height = 250;  //collapsed banner height
-    var isiY = 252;     //change to isiX for horizontal banners
+
+    // Scrolling Content piece size here
+    var isiY = 200;     //change to isiX for horizontal banners
 
     var slideIn = .8;
     var fadeIn = .5;
     var fadeOut = .3;
     var isiScrollTime = 250;
-    
+
     //Enabler.setExpandingPixelOffsets(0, 0, expW, expH);
 
     var m = mkr.makeDC(_width, _height, {css:{autoAlpha:1, pointerEvents:"auto"}, attr:{id:"main"}, preload:true});
     //console.log(m);
 
-    m.create("img", {attr:{src:'bg-0.png'}});
+    m.create("img", {css: { x:-100, y:-70, scale: 0.7}, attr:{src:'bg-0.png'}});
 
     m.create("img", {
-        css: { x:0, y:-140, scale:0.6, width:500, transformOrigin:'0 0'},
+        css: { x:-180, y:-140, scale:1, transformOrigin:'0 0'},
         attr: { id:"bg", src:"bg.jpg"} });
 
     m.create("img", {
-        css: { x:-43, y:-90, scale: 0.7 },
+        css: { x:-44, y:-90, scale: 0.7 },
         attr: { id:"logo", src:"logo.png"} });
 
     m.create("div", {
@@ -38,17 +39,17 @@ function initHandler() { //Subsequent loading...
         css: { x:0, y:0, autoAlpha:0},
         attr: { id:"txt2", src:"txt-2.png"} },
         "#txt12");
-    
+
     m.create("img", {
-        css: { x:0, y:0, autoAlpha:0, width: 150},
+        css: { x:-75, y:-140, scale: 0.5 , autoAlpha:0},
         attr: { id:"txt3", src:"txt-3.png"} });
-    
+
     m.create("img", {
-        css: { x:70, y:-100, scale: 0.5, autoAlpha:0},
+        css: { x:45, y:-170, scale: 0.7, autoAlpha:0},
         attr: { id:"requestARep", src:"request-a-rep.png"} });
 
     m.create("div", {
-        css: { x:0, y:-10, width:299, height:350, autoAlpha:0 },
+        css: { x:0, y:_height, width:299, height:50, autoAlpha:0},
         attr: { id:"isi-col", class:"isi-content"},
         text: mkr.query("#isi-content").innerHTML });
 
@@ -57,14 +58,14 @@ function initHandler() { //Subsequent loading...
         attr: { id:"cta"} });
 
     var isi = document.getElementsByClassName('isi-content');
-	
+
     m.load(loadComplete);
 
     function loadComplete() {
         activateClickTags();
         if (isiScreenShotHandler(isi))
             return;
-        
+
         initAnims();
     }
 
@@ -73,32 +74,32 @@ function initHandler() { //Subsequent loading...
             onComplete:
                 function() { TweenLite.to(isi, .5, {scrollTo:0, ease:Power2.easeOut})} });
     };
-    
+
 
     function initAnims() {
         //m.tmln.timeScale(.3);
         m.tmln.addLabel("scn1", .2);
         m.tmln.to(txt1, fadeIn, {autoAlpha:1}, "scn1");
         m.tmln.from(txt1, fadeIn, {x:"+=15"}, "scn1");
-        
+
         m.tmln.addLabel("scn2", "+=1.3");
         m.tmln.to(bg, fadeIn, {x:25, y:-170, scale:.55}, "scn2");
         m.tmln.to(txt1, fadeIn, {scale:.72, x:-14, y:71}, "scn2");
         m.tmln.to(txt2, fadeIn, {autoAlpha:1}, "scn2+=.3");
-        
+
         m.tmln.addLabel("scn3", "+=1.3");
         m.tmln.to(txt12, fadeOut, {autoAlpha:0}, "scn3");
         m.tmln.to(bg, fadeIn, {x:"-=25", y:"-=25"}, "scn3");
         m.tmln.to(txt3, fadeIn, {autoAlpha:1}, "scn3+=.3");
-        
+
         m.tmln.from(isi, fadeIn, {y:isiY}, "scn3+=.3");
         m.tmln.to(isi, fadeIn, {y:isiY, autoAlpha:1}, "scn3+=.3");
         m.tmln.set(cta, {height:isiY}, "scn3+=.3");
-        
+
         m.tmln.to(requestARep, fadeIn, {autoAlpha:1}, "scn3+=.5");
         m.tmln.from(requestARep, fadeIn, {x:"+=15"}, "scn3+=.5");
 
         m.tmln.call(scrollISI, [], this, "scn3+=1.5");
     }
-        
+
 }
