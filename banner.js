@@ -21,7 +21,7 @@ function initHandler() { //Subsequent loading...
         attr: { id:"bg", src:"bg.jpg"} });
 
     m.create("img", {
-        css: { x:0, y:0},
+        css: { x:-44, y:-90, scale: 0.7 },
         attr: { id:"logo", src:"logo.png"} });
 
     m.create("div", {
